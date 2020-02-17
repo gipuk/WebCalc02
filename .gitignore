@@ -1,4 +1,6 @@
 .idea
 chromedriver.exe
 geckodriver.exe
+Calculator.iml
+target/test-classes/META-INF/
 
