@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
-public class Calc {
+public class Calc1 {
 
     @Test
     public void startWebDriver() {
@@ -30,7 +30,7 @@ public class Calc {
 
         driver.manage().window().maximize();
 
-        driver.findElement(By.cssSelector("[id=\"cookieconsentallowal\"]")).click();
+        driver.findElement(By.cssSelector("[id=\"cookieconsentallowall\"]")).click();
         driver.findElement(By.cssSelector("[id=\"input\"]")).sendKeys("35");
         driver.findElement(By.cssSelector("[id=\"BtnMult\"]")).click();
         driver.findElement(By.cssSelector("[id=\"input\"]")).sendKeys("999");
@@ -43,9 +43,10 @@ public class Calc {
         driver.findElement(By.cssSelector("[id=\"BtnCalc\"]")).click();
 
         WebElement equal1 = wait.until(presenceOfElementLocated(By.cssSelector("[id=\"result\"]")));
-        driver.findElement(By.cssSelector("[class=\"history btn-group open\"]")).click();
-        String results = driver.findElement(By.xpath("//*[@id='histframe']/ul/li/p[1]")).getText();
-        Assert.assertTrue(results.equals("34990"));
+        driver.findElement(By.cssSelector("span.glyphicon-chevron-down")).click();
+        WebElement equal2 = wait.until(presenceOfElementLocated(By.cssSelector("[id=\"clearhistory\"]")));
+        String results = driver.findElement(By.xpath("//*[@id=\"histframe\"]/ul/li/p[1]")).getText();
+        Assert.assertTrue(results.contains("34990"));
 
 
         driver.manage().deleteAllCookies();
