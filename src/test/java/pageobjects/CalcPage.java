@@ -11,7 +11,7 @@ public class CalcPage extends BasePage {
         super(driver);
     }
 
-    By acceptAllCookiesBtnBy = By.id("cookieconsentallowall");
+
     By multiplyBtnBy = By.id("BtnMult");
     By plusBtnBy = By.id("BtnPlus");
     By parenthasisLBtnBy = By.id("BtnParanL");
@@ -22,4 +22,56 @@ public class CalcPage extends BasePage {
     By resultField = By.id("result");
     By historyDropdownBy = By.cssSelector("span.glyphicon-chevron-down");
     By historyResultFirstBy = By.xpath("//*[@id=\"histframe\"]/ul/li/p[1]");
+
+    public CalcPage multiplyNumbers (String firstNumber, String secondNumber) {
+        writeText(inputFieldBy, firstNumber);
+        click(multiplyBtnBy);
+        writeText(inputFieldBy, secondNumber);
+        return this;
+    }
+
+    public CalcPage addNumbers (String firstNumber, String secondNumber) {
+        writeText(inputFieldBy, firstNumber);
+        click(plusBtnBy);
+        writeText(inputFieldBy, secondNumber);
+        return this;
+    }
+
+    public CalcPage plusClick () {
+        click(plusBtnBy);
+        return this;
+    }
+
+
+    public CalcPage divideNumbers (String firstNumber, String secondNumber) {
+        writeText(inputFieldBy, firstNumber);
+        click(divideBtnBy);
+        writeText(inputFieldBy, secondNumber);
+        return this;
+    }
+
+    public CalcPage addbracketLeft () {
+        click(parenthasisLBtnBy);
+        return this;
+    }
+
+    public CalcPage addbracketRight () {
+        click(parenthasisRBtnBy);
+        return this;
+    }
+
+    public CalcPage clickEqualBtn () {
+        click(equalBtnBy);
+        return this;
+    }
+
+    public CalcPage getResult (String expectedResult){
+        click(historyDropdownBy);
+        waitVisibility(historyResultFirstBy);
+        assertTrue(historyResultFirstBy, expectedResult);
+        //assertEquals(historyResultFirstBy, expectedResult);
+        return this;
+    }
+
+
 }

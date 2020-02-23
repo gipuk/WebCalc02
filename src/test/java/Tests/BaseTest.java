@@ -6,10 +6,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 public class BaseTest {
-    public WebDriver driver;
+    public static WebDriver driver;
 
     @BeforeClass
-    public void setup () {
+    public static void  setup () {
         //Create a Chrome driver. All test classes use this.
         driver = new ChromeDriver();
 
@@ -18,7 +18,7 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void teardown () {
+    public static void teardown () {
         driver.quit();
     }
 }
