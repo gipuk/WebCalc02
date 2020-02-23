@@ -2,7 +2,6 @@ package Tests;
 
 import org.junit.Test;
 import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +17,8 @@ public class Calc1 extends BaseTest {
 
     @Test
     public void Calctest () {
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        MainPage mainPage = new MainPage(driver);
+        mainPage.goToWebCalc();
 
         driver.findElement(By.id("cookieconsentallowall")).click();
 
