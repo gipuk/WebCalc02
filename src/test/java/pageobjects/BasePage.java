@@ -39,13 +39,6 @@ public class BasePage {
         return driver.findElement(elementBy).getText();
     }
 
-    //AssertEquals
-    public void assertEquals (By elementBy, String expectedText) {
-        waitVisibility(elementBy);
-        Assert.assertEquals(readText(elementBy), expectedText);
-
-    }
-
     //AssertTrue
     public void assertTrue (By elementBy, String expectedText) {
         waitVisibility(elementBy);

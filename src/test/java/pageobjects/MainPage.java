@@ -3,7 +3,7 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+
 
 
 public class MainPage extends BasePage {
