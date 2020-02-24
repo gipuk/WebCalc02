@@ -7,7 +7,7 @@ import pageobjects.MainPage;
 
 
 
-public class Calc1 extends BaseTest {
+public class Calc1Test extends BaseTest {
 
     @Test
     public void CalcTest () {
